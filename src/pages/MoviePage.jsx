@@ -24,7 +24,7 @@ function MoviePage() {
       <div className="text-4xl font-bold">Trending Now</div>
       <div className="flex flex-wrap gap-6">
         {movies.map((item) => (
-          <div className="w-[calc((100%-6*2rem)/8)] min-w-50 rounded-md overflow-hidden shadow-2xl relative">
+          <div className="w-[calc((100%-6*2rem)/8)] min-w-50 rounded-md overflow-hidden shadow-2xl relative" key={item.id}>
             <img
               src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`}
               alt=""
@@ -37,6 +37,9 @@ function MoviePage() {
             </div>
             <div className=" absolute top-2 left-2">
                 <Heart className={`text-white/30 hover:text-white/80`} />
+            </div>
+            <div className="w-full h-[4px] bg-black/40 absolute bottom-20" >
+                <div className={`w-[${(Math.round(10-item.vote_average)*10)}%] bg-green-400 h-full relative`}></div>
             </div>
           </div>
         ))}
