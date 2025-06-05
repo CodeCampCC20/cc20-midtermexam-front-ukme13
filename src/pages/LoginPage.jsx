@@ -65,7 +65,7 @@ function LoginPage() {
   return (
     <div className="container">
       <div className="box">
-        <h1>Login</h1>
+        <h1 className="mb-4">Welcome</h1>
 
         <form onSubmit={handleSubmit} className="">
           <InputForm
@@ -90,7 +90,7 @@ function LoginPage() {
             error={inputError.password}
           />
 
-          <button disabled={isLoading} className="btn btn-primary">
+          <button disabled={isLoading} className="mybtn">
             {isLoading ? (
               <>
                 <Loader2 className="" strokeWidth={2} />

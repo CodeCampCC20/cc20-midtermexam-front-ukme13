@@ -88,15 +88,15 @@ function ToDoList() {
     }
   };
 
-  const handleCheck = async (e,task) => {
+  const handleCheck = async (e, task) => {
     const input = {
       taskName: task.taskName,
-      completed: e.target.checked
+      completed: e.target.checked,
     };
 
     try {
       // console.log(e.target.checked);
-      await taskApi.updateTask(task.id,input, token);
+      await taskApi.updateTask(task.id, input, token);
       await actionFetchTask(token);
       toast.success("Update success!!");
     } catch (error) {
@@ -109,52 +109,64 @@ function ToDoList() {
 
   return (
     <div className="container">
-      <div className="flex box">
-        <h1>My todo</h1>
-        <Rocket className="" strokeWidth={2} />
-      </div>
-      <form onSubmit={handleSubmit} className="">
-        <InputForm
-          text=""
-          icon="null"
-          handleChange={handleChange}
-          value={input.taskName}
-          placeholder="new task"
-          type="text"
-          id="taskName"
-          error={inputError.taskName}
-        />
-        <button disabled={isLoading} className="btn btn-primary">
-          {isLoading ? (
-            <>
-              <Loader2 className="" strokeWidth={2} />
-              <span>Loading...</span>
-            </>
-          ) : (
-            <>
-              {/* <Loader2 className="" strokeWidth={2} /> */}
-              <span>Add</span>
-            </>
-          )}
-        </button>
-      </form>
-      {tasks.map((item) => (
-        <div className="flex" key={item.id}>
-          <input  type="checkbox" onChange={(e) => handleCheck(e,item)} checked={item.completed ? true : false}/>
-          <div key={item.id} className={`${item.completed ? 'line-through': ''}`}>{item.taskName}</div>
-          <button
-            onClick={() => handleDelete(item.id)}
-            disabled={isLoadingDel}
-            className=""
-          >
-            {isLoadingDel ? (
-              <Loader2Icon className="h-5 w-5 animate-spin" />
+      <div className="flex flex-col box">
+        <div className="flex items-center">
+          <h1 className="w-full mb-2">My todo</h1>
+          <Rocket className="w-8 h-8" strokeWidth={2} />
+        </div>
+        <form onSubmit={handleSubmit} className="flex h-14 mb-6 w-full">
+          <InputForm
+            className="w-full"
+            text=""
+            icon="null"
+            handleChange={handleChange}
+            value={input.taskName}
+            placeholder="new task"
+            type="text"
+            id="taskName"
+            error={inputError.taskName}
+          />
+          <button disabled={isLoading} className="btn btn-primary h-full w-16">
+            {isLoading ? (
+              <>
+                <Loader2 className="" strokeWidth={2} />
+                <span>Loading...</span>
+              </>
             ) : (
-              <X className="h-5 w-5" />
+              <>
+                {/* <Loader2 className="" strokeWidth={2} /> */}
+                <span>Add</span>
+              </>
             )}
           </button>
-        </div>
-      ))}
+        </form>
+        {tasks.map((item) => (
+          <div className="flex" key={item.id}>
+            <input
+              type="checkbox"
+              onChange={(e) => handleCheck(e, item)}
+              checked={item.completed ? true : false}
+            />
+            <div
+              key={item.id}
+              className={`${item.completed ? "line-through" : ""}`}
+            >
+              {item.taskName}
+            </div>
+            <button
+              onClick={() => handleDelete(item.id)}
+              disabled={isLoadingDel}
+              className=""
+            >
+              {isLoadingDel ? (
+                <Loader2Icon className="h-5 w-5 animate-spin" />
+              ) : (
+                <X className="h-5 w-5" />
+              )}
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

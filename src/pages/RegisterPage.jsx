@@ -64,7 +64,7 @@ function RegisterPage() {
   return (
     <div className="container">
       <div className="box">
-        <h1>Register</h1>
+        <h1 className="mb-4">Register</h1>
 
         <form onSubmit={handleSubmit} className="">
           <InputForm
@@ -100,7 +100,7 @@ function RegisterPage() {
             error={inputError.confirmPassword}
           />
 
-          <button disabled={isLoading} className="btn btn-primary">
+          <button disabled={isLoading} className="mybtn">
             {isLoading ? (
               <>
                 <Loader2 className="" strokeWidth={2} />

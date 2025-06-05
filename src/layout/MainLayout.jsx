@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 
 function MainLayout() {
   return (
-    <div className="bg-[#121926] min-h-lvh">
+    <div className="bg-[#121926] min-h-screen">
       <Navbar />
       <Outlet />
     </div>
