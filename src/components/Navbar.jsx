@@ -19,6 +19,9 @@ function Navbar() {
         <NavLink className="w-fit" to="register">
           Register
         </NavLink>
+        <NavLink className="w-fit" to="movies">
+          Movies
+        </NavLink>
         {/* <NavLink className="w-fit" to="todolist">
           To Do List
         </NavLink> */}

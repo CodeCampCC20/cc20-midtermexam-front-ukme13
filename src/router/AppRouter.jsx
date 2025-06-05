@@ -4,6 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import ToDoList from "../pages/ToDoList";
 import RegisterPage from "../pages/RegisterPage";
 import ProtectedRoute from "../components/ProtectedRoute";
+import MoviePage from "../pages/MoviePage";
 
 function AppRouter() {
   return (
@@ -17,6 +18,7 @@ function AppRouter() {
           </Route>
 
           {/* <Route path="todolist" element={<ToDoList />}/> */}
+          <Route path="movies" element={<MoviePage />}/>
           <Route path="register" element={<RegisterPage />} />
         </Route>
       </Routes>
