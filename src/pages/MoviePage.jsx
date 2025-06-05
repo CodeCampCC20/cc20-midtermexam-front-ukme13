@@ -24,7 +24,7 @@ function MoviePage() {
       <div className="text-4xl font-bold">Trending Now</div>
       <div className="flex flex-wrap gap-6">
         {movies.map((item) => (
-          <div className="w-50 rounded-md overflow-hidden shadow-2xl relative">
+          <div className="w-[calc((100%-6*2rem)/8)] min-w-50 rounded-md overflow-hidden shadow-2xl relative">
             <img
               src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`}
               alt=""
@@ -46,3 +46,5 @@ function MoviePage() {
 }
 
 export default MoviePage;
+
+

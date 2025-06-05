@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <nav className="h-14 bg-black/20 flex gap-4 w-full items-center justify-between px-6">
-      <div className="">{userName == null ? 'Guest' : `Hello, ${userName}`}</div>
+      <div className="">{userName == null ? 'Guest Mode' : `Hello, ${userName}`}</div>
       <div className="flex gap-4 items-center">
         {token == null ? (
           <NavLink className="w-fit" to="/">
