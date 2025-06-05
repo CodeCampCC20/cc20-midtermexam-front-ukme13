@@ -18,6 +18,7 @@ function LoginPage() {
   const [inputError, setInputError] = useState(InitialInput);
   const [isLoading, setIsLoading] = useState(false);
   const userLogin = useAuthStore((state) => state.setToken);
+  const userName = useAuthStore((state) => state.setUsername);
 
   const navigate = useNavigate();
 
@@ -40,6 +41,9 @@ function LoginPage() {
       const res = await authApi.login(input);
       console.log('Your Token : ',res.data.accessToken);
       userLogin(res.data.accessToken);
+      userName(input.username)
+      console.log('res : ',res);
+      console.log('userName : ',input.username);
 
       setInput(InitialInput);
       navigate("/todolist");
@@ -63,7 +67,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container bg-[#131925] w-full">
       <div className="box">
         <h1 className="mb-4">Welcome</h1>
 
@@ -90,7 +94,7 @@ function LoginPage() {
             error={inputError.password}
           />
 
-          <button disabled={isLoading} className="mybtn">
+          <button disabled={isLoading} className="mybtn flex gap-2 justify-center">
             {isLoading ? (
               <>
                 <Loader2 className="" strokeWidth={2} />

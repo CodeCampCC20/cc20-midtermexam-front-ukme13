@@ -3,7 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import LoginPage from "../pages/LoginPage";
 import ToDoList from "../pages/ToDoList";
 import RegisterPage from "../pages/RegisterPage";
-import ProtectRoute from "../components/protectRoute";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 function AppRouter() {
   return (
@@ -11,15 +11,12 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<LoginPage />} />
-          <Route path="todolist" element={<ToDoList />}/>
-          {/* <Route
-            path="todolist"
-            element={
-              <ProtectRoute>
-                <ToDoList />
-              </ProtectRoute>
-            }
-          /> */}
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="todolist" element={<ToDoList />}/>
+          </Route>
+
+          {/* <Route path="todolist" element={<ToDoList />}/> */}
           <Route path="register" element={<RegisterPage />} />
         </Route>
       </Routes>

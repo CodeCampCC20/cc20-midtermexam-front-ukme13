@@ -1,4 +1,4 @@
-function InputForm({
+function InputFormTodo({
   text,
   icon: Icon,
   handleChange,
@@ -16,7 +16,7 @@ function InputForm({
           <Icon className="" />{text}
         </label> */}
 
-        <input className={`bg-[#384150] w-full p-4 rounded-xl text-white/50 placeholder-white-50 ${error ? "outline-1 outline-red-500" : "outline-0"}`} 
+        <input className={`border-b-2 w-full text-2xl py-3 text-white/50 placeholder-white-50 focus:outline-0 ${error ? "border-red-500" : ""}`} 
         id = {id}
         onChange={handleChange}
         value={value}
@@ -28,4 +28,4 @@ function InputForm({
   )
 }
 
-export default InputForm
+export default InputFormTodo

@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <ToastContainer
-      autoClose={1500}
+      autoClose={2000}
       transition={Slide}
       position='bottom-right'
       />

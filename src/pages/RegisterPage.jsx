@@ -62,7 +62,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container bg-[#131925] w-full">
       <div className="box">
         <h1 className="mb-4">Register</h1>
 
@@ -100,7 +100,7 @@ function RegisterPage() {
             error={inputError.confirmPassword}
           />
 
-          <button disabled={isLoading} className="mybtn">
+          <button disabled={isLoading} className="mybtn flex gap-2 justify-center">
             {isLoading ? (
               <>
                 <Loader2 className="" strokeWidth={2} />
