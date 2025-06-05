@@ -39,7 +39,7 @@ function MoviePage() {
                 <Heart className={`text-white/30 hover:text-white/80`} />
             </div>
             <div className="w-full h-[4px] bg-black/40 absolute bottom-20" >
-                <div className={`w-[${(Math.round(10-item.vote_average)*10)}%] bg-green-400 h-full relative`}></div>
+                <div className={`w-[${(Math.round(item.vote_average)*10)}%] bg-green-400 h-full relative`}></div>
             </div>
           </div>
         ))}
